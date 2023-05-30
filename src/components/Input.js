@@ -8,7 +8,7 @@ export const Input = styled.input`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.gray[900]};
   background-color:  ${({ theme }) => theme.colors.background.lighter};
-  box-shadow: 0px 4px 10px  ${({ theme }) => theme.colors.boxShadow};
+  box-shadow:  ${({ theme }) => theme.boxShadow};
   outline-color: ${({ theme }) => theme.colors.primary.main};
   border: 2px solid transparent;
   appearance: none;

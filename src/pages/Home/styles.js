@@ -18,7 +18,7 @@ export const InputSearchContainer = styled.div`
     border: none;
     border-radius: 25px;
     height: 50px;
-    box-shadow: 0px 4px 10px  ${({ theme }) => theme.colors.boxShadow};
+    box-shadow:  ${({ theme }) => theme.boxShadow};
     padding: 0 16px;
     outline-color: ${({ theme }) => theme.colors.primary.main};
 
@@ -89,7 +89,7 @@ export const CardList = styled.ul`
 
 export const Card = styled.li`
   background-color:  ${({ theme }) => theme.colors.background.lighter};
-  box-shadow: 0px 4px 10px  ${({ theme }) => theme.colors.boxShadow};
+  box-shadow:  ${({ theme }) => theme.boxShadow};
   padding: 16px;
   border-radius: 4px;
 

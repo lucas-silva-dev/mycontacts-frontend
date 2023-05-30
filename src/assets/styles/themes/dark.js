@@ -21,6 +21,10 @@ export default {
       200: '#c4c4c4',
       900: '#E1E1E6',
     },
-    boxShadow: '#0000000a',
+    success: {
+      main: '#51CA73',
+    },
   },
+  boxShadow: '0px 4px 10px #0000000a',
+  toastBoxShadow: '0px 20px 20px -16px  #0000000a',
 };

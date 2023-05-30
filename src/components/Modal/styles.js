@@ -19,7 +19,7 @@ export const Container = styled.div`
   padding: 24px;
   border-radius: 4px;
   background-color:  ${({ theme }) => theme.colors.background.lighter};
-  box-shadow: 0px 4px 10px  ${({ theme }) => theme.colors.boxShadow};
+  box-shadow:  ${({ theme }) => theme.boxShadow};
 
   > strong {
     font-size: 22px;

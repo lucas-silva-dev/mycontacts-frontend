@@ -12,7 +12,7 @@ export const StyledButton = styled.button`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.background.lighter};
   background-color:  ${({ theme }) => theme.colors.primary.main};
-  box-shadow: 0px 4px 10px  ${({ theme }) => theme.colors.boxShadow};
+  box-shadow:  ${({ theme }) => theme.boxShadow};
   transition: background 0.2s ease-in;
 
 
