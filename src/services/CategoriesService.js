@@ -5,11 +5,11 @@ class CategoriesService {
     this.httpClient = new HttpClient('http://localhost:4004');
   }
 
-  async listCategories() {
+  listCategories() {
     return this.httpClient.get('/categories');
   }
 
-  async showContact(id) {
+  showContact(id) {
     return this.httpClient.get(`/categories/${id}`);
   }
 }
