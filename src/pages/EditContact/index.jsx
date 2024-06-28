@@ -1,17 +1,19 @@
-import { useState, useEffect, useRef } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 
 import ContactForm from '../../components/ContactForm';
-import PageHeader from '../../components/PageHeader';
 import Loader from '../../components/Loader';
+import PageHeader from '../../components/PageHeader';
 
+import useSafeAsyncAction from '../../hooks/useSafeAsyncAction';
 import ContactsService from '../../services/ContactsService';
 import toast from '../../utils/toast';
-import useSafeAsyncAction from '../../hooks/useSafeAsyncAction';
 
 export default function EditContact() {
   const contactFormRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
+  // const [isCategoryModalVisible, setIsCategoryModalVisible] = useState(false);
+  // const [isLoadingCreateCategory, setIsLoadingCreateCategory] = useState(false);
   const [contactName, setContactName] = useState('');
 
   const { id } = useParams();
@@ -19,15 +21,8 @@ export default function EditContact() {
 
   const safeAsyncAction = useSafeAsyncAction();
 
-  const handleSubmit = async (formData) => {
+  const handleSubmit = async (contact) => {
     try {
-      const contact = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        category_id: formData.categoryId,
-      };
-
       const contactData = await ContactsService.updateContact(id, contact);
 
       setContactName(contactData.name);
@@ -72,6 +67,17 @@ export default function EditContact() {
 
   return (
     <>
+      {/* <Modal
+        danger
+        isVisible={isCategoryModalVisible}
+        title="Criar nova categoria"
+        confirmLabel="Deletar"
+        onCancel={handleCloseDeleteModal}
+        onConfirm={handleConfirmDeleteContact}
+        isLoading={isLoadingCreateCategory}
+      >
+        <p>Esta ação não poderá ser desfeita!</p>
+      </Modal> */}
       <Loader isLoading={isLoading} />
       <PageHeader title={isLoading ? 'Carregando...' : `Editar ${contactName}`} />
       <ContactForm ref={contactFormRef} buttonLabel="Salvar alterações" onSubmit={handleSubmit} />

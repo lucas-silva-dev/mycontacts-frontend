@@ -1,36 +1,39 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-nested-ternary */
 import {
-  useEffect, useState, useMemo, useCallback,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
 } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
-  Container,
-  InputSearchContainer,
-  Header,
-  ListFilter,
-  CardList,
   Card,
-  ErrorContainer,
+  CardList,
+  Container,
   EmptyListContainer,
+  ErrorContainer,
+  Header,
+  InputSearchContainer,
+  ListFilter,
   SearchNotFoundContainer,
 } from './styles';
 
-import Modal from '../../components/Modal';
-import Loader from '../../components/Loader';
 import Button from '../../components/Button';
+import Loader from '../../components/Loader';
+import Modal from '../../components/Modal';
 
-import formatPhone from '../../utils/formatPhone';
 import ContactsService from '../../services/ContactsService';
+import formatPhone from '../../utils/formatPhone';
 import toast from '../../utils/toast';
 
+import emptyBox from '../../assets/images/empty-box.svg';
 import arrowIcon from '../../assets/images/icons/arrow.svg';
 import editIcon from '../../assets/images/icons/edit.svg';
 import trashIcon from '../../assets/images/icons/trash.svg';
-import sadImg from '../../assets/images/sad.svg';
-import emptyBox from '../../assets/images/empty-box.svg';
 import magnifierQuestion from '../../assets/images/magnifier-question.svg';
+import sadImg from '../../assets/images/sad.svg';
 
 export default function Home() {
   const [contacts, setContacts] = useState([]);
@@ -212,8 +215,8 @@ export default function Home() {
                 <div className="info">
                   <div className="contact-name">
                     <strong>{contact.name}</strong>
-                    {contact.category_name && (
-                      <small>{contact.category_name}</small>
+                    {contact.category.name && (
+                      <small>{contact.category.name}</small>
                     )}
                   </div>
                   <span>{contact.email}</span>

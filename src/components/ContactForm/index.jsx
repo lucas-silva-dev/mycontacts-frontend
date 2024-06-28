@@ -1,7 +1,10 @@
 /* eslint-disable no-console */
 import PropTypes from 'prop-types';
 import {
-  useState, useEffect, forwardRef, useImperativeHandle,
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
 } from 'react';
 
 import { Input } from '../Input';
@@ -10,13 +13,13 @@ import { Select } from '../Select';
 import Button from '../Button';
 import FormGroup from '../FormGroup';
 
-import isEmailValid from '../../utils/isEmailValid';
-import formatPhone from '../../utils/formatPhone';
 import useErrors from '../../hooks/useErrors';
-import CategoriesService from '../../services/CategoriesService';
 import useSafeAsyncState from '../../hooks/useSafeAsyncState';
+import CategoriesService from '../../services/CategoriesService';
+import formatPhone from '../../utils/formatPhone';
+import isEmailValid from '../../utils/isEmailValid';
 
-import { Form, ButtonContainer } from './styles';
+import { ButtonContainer, Form } from './styles';
 
 const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
   const [name, setName] = useState('');
@@ -52,7 +55,7 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
       setName(contact.name ?? '');
       setEmail(contact.email ?? '');
       setPhone(formatPhone(contact.phone ?? ''));
-      setCategoryId(contact.category_id ?? '');
+      setCategoryId(contact.category.id ?? '');
     },
 
     resetFields: () => {
@@ -140,7 +143,8 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
           value={categoryId}
           disabled={isLoadingCategories || isSubmitting}
         >
-          <option value="">Sem Categoria</option>
+          <option key="noCategory" value="">Sem Categoria</option>
+          {/* <option key="newCategory" value="new" onClick={}>Criar nova categoria</option> */}
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
               {category.name}
