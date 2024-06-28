@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
-import Presentation from './Presentation';
-
 import useSafeAsyncAction from '../../hooks/useSafeAsyncAction';
 import ContactsService from '../../services/ContactsService';
 import toast from '../../utils/toast';
 
-export default function Container() {
+export default function useEditContact() {
   const contactFormRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   // const [isCategoryModalVisible, setIsCategoryModalVisible] = useState(false);
@@ -63,12 +61,10 @@ export default function Container() {
     loadContact();
   }, [id, history, safeAsyncAction]);
 
-  return (
-    <Presentation
-      isLoading={isLoading}
-      contactName={contactName}
-      contactFormRef={contactFormRef}
-      onSubmit={handleSubmit}
-    />
-  );
+  return {
+    isLoading,
+    contactName,
+    contactFormRef,
+    handleSubmit,
+  };
 }
