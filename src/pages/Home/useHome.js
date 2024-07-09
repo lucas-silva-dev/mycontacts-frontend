@@ -34,9 +34,8 @@ export default function useHome() {
       setHasError(false);
       setContacts(contactsList);
     } catch (error) {
-      // eslint-disable-next-line
-      console.error(error.response);
       setHasError(true);
+      setContacts([]);
     } finally {
       setIsLoading(false);
     }
