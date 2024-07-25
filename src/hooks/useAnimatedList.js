@@ -29,7 +29,7 @@ export default function useAnimatedList(initialState = []) {
       if (animatedElement && !alreadyhasListener) {
         const onAnimationEnd = () => handleAnimationEnd(itemId);
         const removeListener = () => {
-          animatedElement.removeListener('animationend', onAnimationEnd);
+          animatedElement.removeEventListener('animationend', onAnimationEnd);
         };
 
         animatedElement.addEventListener('animationend', onAnimationEnd);
@@ -57,6 +57,8 @@ export default function useAnimatedList(initialState = []) {
       animatedRef = createRef();
       animatedRefs.current.set(itemId, animatedRef);
     }
+
+    return animatedRef;
   }, []);
 
   const renderList = useCallback((renderItem) => (
