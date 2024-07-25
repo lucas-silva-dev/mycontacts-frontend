@@ -25,8 +25,8 @@ export default function Modal({
 
   return (
     <ReactPortal containerId="modal-root">
-      <Overlay isLeaving={!isVisible} ref={overlayRef}>
-        <Container danger={danger} isLeaving={!isVisible}>
+      <Overlay $isLeaving={!isVisible} ref={overlayRef}>
+        <Container $danger={danger} $isLeaving={!isVisible}>
           <strong>
             {title}
           </strong>

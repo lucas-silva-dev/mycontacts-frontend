@@ -11,7 +11,7 @@ export default function Button({
     <StyledButton
       type={type}
       disabled={disabled || isLoading}
-      danger={danger}
+      $danger={danger}
       onClick={onClick}
     >
       {isLoading ? <Spinner size={16} /> : children}

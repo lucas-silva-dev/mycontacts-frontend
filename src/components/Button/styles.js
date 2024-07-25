@@ -30,7 +30,7 @@ export const StyledButton = styled.button`
     background-color: ${({ theme }) => theme.colors.gray[200]} !important;
   }
 
-  ${({ theme, danger }) => danger && css`
+  ${({ theme, $danger }) => $danger && css`
       background-color: ${theme.colors.danger.main};
 
       &:hover {

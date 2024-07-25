@@ -33,7 +33,7 @@ export const Overlay = styled.div`
   justify-content: center;
   animation: ${fadeIn} 0.3s forwards;
 
-  ${({ isLeaving }) => isLeaving && css`
+  ${({ $isLeaving }) => $isLeaving && css`
     animation: ${fadeOut} 0.3s forwards;
   `}
 `;
@@ -49,14 +49,14 @@ export const Container = styled.div`
 
   > strong {
     font-size: 22px;
-    color: ${({ theme, danger }) => (danger ? theme.colors.danger.main : theme.colors.gray[900])}
+    color: ${({ theme, $danger }) => ($danger ? theme.colors.danger.main : theme.colors.gray[900])}
   }
 
   .modal-body {
     margin-top: 32px
   }
 
-  ${({ isLeaving }) => isLeaving && css`
+  ${({ $isLeaving }) => $isLeaving && css`
     animation: ${scaleOut} 0.3s forwards;
   `}
 `;

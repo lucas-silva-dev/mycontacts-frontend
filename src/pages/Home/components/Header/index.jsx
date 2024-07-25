@@ -16,7 +16,7 @@ export default function Header({
 
   return (
     <Container
-      justifyContent={alignment}
+      $justifyContent={alignment}
     >
       {!hasError && qtyOfContacts > 0 && (
         <strong>

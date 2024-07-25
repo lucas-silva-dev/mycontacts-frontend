@@ -24,7 +24,7 @@ export const Input = styled.input`
     border-color: ${({ theme }) => theme.colors.gray[200]};
   }
 
-  ${({ theme, error }) => error && css`
+  ${({ theme, $error }) => $error && css`
     color: ${theme.colors.danger.main};
     outline-color: ${theme.colors.danger.main};
     border-color:  ${theme.colors.danger.main};

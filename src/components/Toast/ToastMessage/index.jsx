@@ -25,7 +25,7 @@ function ToastMessage({
   return (
     <Container
       ref={animatedRef}
-      isLeaving={isLeaving}
+      $isLeaving={isLeaving}
       type={message.type}
       onClick={() => handleRemoveToast()}
       tabIndex={0}

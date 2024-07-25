@@ -14,7 +14,6 @@ export const Select = styled.select`
   cursor: pointer;
   appearance: none;
   text-transform: capitalize;
-  /* margin-top: 16px; */
 
 
   &::placeholder {

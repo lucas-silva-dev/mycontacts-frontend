@@ -36,7 +36,7 @@ export const Container = styled.div`
   ${({ type }) => containerVariants[type] || containerVariants.default};
 
 
-  ${({ isLeaving }) => isLeaving && css`animation: ${messageOut} 0.3s;`};
+  ${({ $isLeaving }) => $isLeaving && css`animation: ${messageOut} 0.3s;`};
 
   & + & {
     margin-top: 12px;

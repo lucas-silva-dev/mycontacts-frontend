@@ -4,7 +4,7 @@ export const Container = styled.header`
   margin-top: 32px;
   display: flex;
   align-items: center;
-  justify-content: ${({ justifyContent }) => justifyContent};
+  justify-content: ${({ $justifyContent }) => $justifyContent};
   padding-bottom: 16px;
   border-bottom: 2px solid ${({ theme }) => theme.colors.gray[100]};
 
