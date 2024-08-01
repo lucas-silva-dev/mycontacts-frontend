@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import useSafeAsyncAction from '../../hooks/useSafeAsyncAction';
 import ContactsService from '../../services/ContactsService';
@@ -13,7 +13,7 @@ export default function useEditContact() {
   const [contactName, setContactName] = useState('');
 
   const { id } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const safeAsyncAction = useSafeAsyncAction();
 
@@ -54,7 +54,7 @@ export default function useEditContact() {
         }
 
         safeAsyncAction(() => {
-          history.push('/');
+          navigate('/', { replace: true });
 
           toast({
             type: 'danger',
@@ -69,7 +69,7 @@ export default function useEditContact() {
     return () => {
       controller.abort();
     };
-  }, [id, history, safeAsyncAction]);
+  }, [id, navigate, safeAsyncAction]);
 
   return {
     isLoading,
