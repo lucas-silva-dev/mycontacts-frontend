@@ -7,15 +7,15 @@ import Button from '../Button';
 import { ReactPortal } from '../ReactPortal';
 
 export default function Modal({
-  danger,
+  danger = false,
   title,
   children,
-  confirmLabel,
-  cancelLabel,
+  confirmLabel = 'Confirmar',
+  cancelLabel = 'Cancelar',
   onConfirm,
   onCancel,
   isVisible,
-  isLoading,
+  isLoading = false,
 }) {
   const { shouldRender, animatedElementRef: overlayRef } = useAnimatedUnmount(isVisible);
 
@@ -70,11 +70,4 @@ Modal.propTypes = {
   onConfirm: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
-};
-
-Modal.defaultProps = {
-  danger: false,
-  cancelLabel: 'Cancelar',
-  confirmLabel: 'Confirmar',
-  isLoading: false,
 };
